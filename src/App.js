@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import NavBar from './components/NavBar'
+import Navigation from './components/Navigation'
+import Card from './components/Card'
+import recipes from './recipes'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+export default function App() {
+  const cards = recipes.recipes.map( item => <Card key={item.id} data={recipes} item={item}/>)
+  return(
+    <>
+      <NavBar/>
+      <section className='wrapRecipes'>
+      {cards}
+      </section>
+      <Navigation />
+    </>
+  )
 }
-
-export default App;
